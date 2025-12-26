@@ -56,6 +56,28 @@ This tool solves that by interacting directly with the Linux input subsystem (`e
     - `--key`: The key code to listen for (default: "KEY_F16"). See `evdev` docs for key names.
     - `--verbose`: Enable debug logging.
 
+## Auto-Start (System Service)
+
+To run this script automatically in the background when you log in:
+
+1.  Run the interactive setup script:
+    ```bash
+    ./setup.sh
+    ```
+    This will help you configure the device/key and create a systemd user service.
+
+2.  **Manage the service**:
+    ```bash
+    # Check status
+    systemctl --user status equibop-ptt
+
+    # Stop service
+    systemctl --user stop equibop-ptt
+
+    # Disable auto-start
+    systemctl --user disable equibop-ptt
+    ```
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
